@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<a href="index.html">Главная</a>
+<table id="table_id">
+<thead>
+<tr>
+<th>Имя</th>
+<th>Фамилия</th>
+<th>Оценка</th>
+</tr>
+</thead>
+<tbody id="tbody" onclick="add_tr()">
+<tr>
+<td>Миняков</td>
+<td>Артем</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
+<script>
+var j=0;
+const students = [['Иванов','Кузнецов','Афанасьев','Николаев','Михайлов'],['Дмитрий','Иван','Олег','Никита','роман'],[5,4,3,2,1]];
+function add_tr() {
+if (j==students[1].length){
+alert("Записи кончились!")
+}
+else{
+var index_tbody = document.getElementById('tbody');
+var add_tr = document.createElement('tr');
+for (var i=0; i<3;i++){
+var add_td = document.createElement('td');
+add_td.innerHTML = students[i][j];
+add_tr.appendChild(add_td);
+}
+index_tbody.appendChild(add_tr);
+j++;
+}
+}
+</script>

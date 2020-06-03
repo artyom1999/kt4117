@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+  <title>Локальное хранилище</title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+    <a href="index.html">Главная</a>
+    <P>
+<h3> Сделайте так, чтобы после закрытия страницы введенные пользователем данные находились на своих местах.</h3>
+<p>
+
+<input type="checkbox" class="stat" name="column-1" value="1"  checked >
+<input type="checkbox" class="stat" name="column-2" value="2"  checked >
+
+
+<script>
+(function(b) {
+    var e = document.querySelectorAll(b),
+        a = localStorage.getItem(b),
+        a = (a = JSON.parse(a)) || (a = {}, localStorage.setItem(b, JSON.stringify(a)));
+    [].forEach.call(e, function(c, d) {
+        void 0 !== a[d] && (c.checked = a[d]);
+        c.addEventListener("change", function() {
+            a[d] = c.checked;
+            localStorage.setItem(b, JSON.stringify(a))
+        })
+    })
+})(".stat");
+</script>
+
+</body>
+
+</html>

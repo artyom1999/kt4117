@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Работа с элементами страницы</title>
+</head>
+<body>
+   <a href="index.html">Главная</a>
+ 
+  <div class="main">
+    <div id="text"> 
+      <p id = "first">Один</p>
+      <p id = "second">Два</p>
+      <p id = "third">Три</p>
+    </div>
+    <div class="buttons"> 
+      <button id="edit" onclick="editText()">Изменить</button>
+      <button id="add" onclick="addText()" disabled="true">Добавить</button>
+      <button id="save" onclick="saveText()" disabled="true">Сохранить</button>
+    </div>
+  </div>
+  
+  
+</body>
+</html>
+
+
+<script type="text/javascript">
+  
+  function editText () {
+    // body...
+    const elements = document.getElementsByTagName('p');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].innerHTML = '<input type="text" value="' + elements[i].innerText + '"/>'; 
+    }
+    document.getElementById('edit').disabled = true;
+    document.getElementById('add').disabled = false;
+    document.getElementById('save').disabled = false;
+  }
+
+  function saveText() {
+    // body...
+    const elements = document.getElementsByTagName('p');
+    const _elements = document.getElementsByTagName('input');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].outerHTML = '<p id="' + elements[i].id + '">' + _elements[0].value + '</p>'; 
+    }
+    document.getElementById('edit').disabled = false;
+    document.getElementById('save').disabled = true;
+    document.getElementById('byTag').disabled = false;
+  }
+
+  function addText() {
+    // body...
+    const element = document.getElementById('text');
+    element.innerHTML += '<p> <input type="text" value""/> </p>'
+  }
+</script>
+
+
+<style type="text/css">
+ 
+
+  button {
+    background-color: #FF0000; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+
+
+  
+
+  .main {
+    text-align: center; 
+    margin-top: 15%;
+  }
+
+  
+</style>

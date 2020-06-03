@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Работа с событиями</title>
+</head>
+
+<body>
+
+<div>
+
+<a href="#" id="" title="титлы">ссылка1</a>
+<a href="#" id="" title="титлы">ссылка2</a>
+<a href="#" id="" title="титлы">ссылка3</a>
+<a href="#" id="" title="титлы">ссылка4</a>
+
+</div>
+
+<script>
+var elems = document.getElementsByTagName('a');
+for (var i = 0; i < elems.length; i++) {
+elems[i].addEventListener('mouseover', func);
+}
+
+function func() {
+this.innerHTML = this.innerHTML + '(' + this.getAttribute('href') + ')';
+}
+
+</script>
+<p>
+	<p>
+<a href="index.html">Главная</a>
+</body>
+</html>
