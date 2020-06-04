@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="UTF-8">
+<title>Cookie</title>
+</head>
+<body>
+</body>
+</html>
+
+<script>
+function getCookie(name) {
+let cookie = document.cookie.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
+if (cookie){
+return cookie[1].split('/');
+} else {
+return ['Первое посещение', 0];
+}
+}
+
+function setCookie(name) {
+let date = new Date(Date.now()).toUTCString();
+let curr = getCookie(name);
+let count = parseInt(curr[1], 10) + 1;
+var element = document.createElement('span');
+
+element.innerHTML = getCookie('page2');
+document.body.appendChild(element);
+
+document.cookie = name + '=' + date + '/' + count;
+}
+
+window.onload = function(e) {
+setCookie('page2');
+}
+
+</script>
