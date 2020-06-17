@@ -1,0 +1,86 @@
+﻿<html>
+  <body>
+	<div align="center">
+		<img id="img" height="500" src="fot1.jpg"/><br>
+		<button onclick="prevImage()"><-</button>
+		<button onclick="nextImage()">-></button>
+		<p>
+
+<table>
+<tbody>
+<tr>
+		<td><div class = "fot1">
+		<img height="100" src="fot1.jpg" onclick="firstImage()"/>
+		<p>
+			<ul>
+<li> Студийные портреты</li>
+
+<li> Евгений Колесник (Evgeni Kolesnik)</li>
+
+<li> Группа</li>
+
+<li> коммерческий</li>
+</ul>
+</p>
+		</div>
+	</td>
+<td><div class = "fot2">
+		<img height="100" src="fot2.jpg" onclick="secondImage()"/>
+<p>		<ul>
+<li> Студийные портреты</li>
+
+<li> Евгений Колесник (Evgeni Kolesnik)</li>
+
+<li> Группа</li>
+
+<li> концептуальный</li>
+</ul>
+</p>
+		</div></td>
+			<td><div class = "fot3">
+		<img height="100" src="fot3.jpg" onclick="thirdImage()"/><br>
+	<p>		<ul>
+<li> Студийные портреты</li>
+
+<li> Евгений Колесник (Evgeni Kolesnik)</li>
+
+<li> Группа</li>
+
+<li> модный</li>
+</ul></p>
+		</div></td>
+
+</tr>
+</tbody>
+</table>
+
+
+
+	</div>
+	<script>
+	var images = ["fot1.jpg", "fot2.jpg", "fot3.jpg"];
+	var i = 1, j = 1;
+	setInterval(function() {
+		if(i == images.length) i = 0;
+		document.getElementById("img").src = images[i++];
+	}, 4000);
+	function prevImage() {
+	if(i == 0) i = images.length-1;
+		document.getElementById("img").src = images[i--];
+	}
+	function nextImage() {
+	if(i == images.length) i = 0;
+		document.getElementById("img").src = images[i++];
+	}
+	function firstImage() {
+	document.getElementById("img").src = images[0];
+	}
+	function secondImage() {
+	document.getElementById("img").src = images[1];
+	}
+	function thirdImage() {
+	document.getElementById("img").src = images[2];
+	}
+    </script>
+  </body>
+</html>
