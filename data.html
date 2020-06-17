@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Главная страница</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+$(function() {
+var sldr = $('.sldr'),
+sldrContent = sldr.html(),
+slideWidth = $('.sl_ctr').outerWidth(),
+slideCount = $('.sldr img').length,
+prv_b = $('.prv_b'),
+nxt_b = $('.nxt_b'),
+sldrInterval = 3300,
+animateTime = 1000,
+course = 1,
+margin = - slideWidth;
+$('.sldr img:last').clone().prependTo('.sldr');$('.sldr img').eq(1).clone().appendTo('.sldr');$('.sldr').css('margin-left',-slideWidth);function nxt_bSlide(){interval=window.setInterval(animate,sldrInterval)}function animate(){if(margin==-slideCount*slideWidth-slideWidth){sldr.css({'marginLeft':-slideWidth});margin=-slideWidth*2}else if(margin==0&&course==-1){sldr.css({'marginLeft':-slideWidth*slideCount});margin=-slideWidth*slideCount+slideWidth}else{margin=margin-slideWidth*(course)}sldr.animate({'marginLeft':margin},animateTime)}function sldrStop(){window.clearInterval(interval)}prv_b.click(function(){if(sldr.is(':animated')){return false}var course2=course;course=-1;animate();course=course2});nxt_b.click(function(){if(sldr.is(':animated')){return false}var course2=course;course=1;animate();course=course2});sldr.add(nxt_b).add(prv_b).hover(function(){sldrStop()},nxt_bSlide);nxt_bSlide()});
+</script>
+</head>
+<body>
+	<a href="index.html">Главная</a>
+	<center>
+	<h3>Дата и время</h3>
+<div id="current_date_time_block"></div>
+<p>
+	<center>
+	<h3>Сделайте так, чтобы через определенный интервал картинка заменялась на другую.</h3> 
+		<p>
+  <img id="myPic" src="https://www.google.ru/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+
+<center>
+<h2><a href="Slider/Slider.html">Слайдер.</a></h3>
+
+  
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+    
+    setTimeout ("document.getElementById ('myPic').src = 'https://yastatic.net/morda-logo/i/gif/23feb2016.gif?rnd=781924374330';", 2000);
+
+    function zero_first_format(value)
+    {
+        if (value < 10)
+        {
+            value='0'+value;
+        }
+        return value;
+    }
+
+    
+    function date_time()
+    {
+        var current_datetime = new Date();
+        var day = zero_first_format(current_datetime.getDate());
+        var month = zero_first_format(current_datetime.getMonth()+1);
+        var year = current_datetime.getFullYear();
+        var hours = zero_first_format(current_datetime.getHours());
+        var minutes = zero_first_format(current_datetime.getMinutes());
+        var seconds = zero_first_format(current_datetime.getSeconds());
+
+        return day+"."+month+"."+year+" "+hours+":"+minutes+":"+seconds;
+    }
+
+    
+    document.getElementById('current_date_time_block').innerHTML = date_time();
+</script>
+
+<style>
+html {
+    min-height: 100%
+    }
+body {
+    min-height: 100%;
+	margin:0;
+	padding:0;
+	font: 15px Tahoma;
+	color:#555;
+    }
+#top{
+	width:100%;
+	background: #222;
+	text-align:center;
+	height:35px;
+	line-height:35px;
+	}
+#top a{color:#00FF00;text-decoration:none;}
+.logo{
+	width:200px;
+	font: 22px/125% Tahoma;
+	float:left;
+	line-height:35px;
+	}
+.logo span{font: 12px/125% Tahoma;}
+ 
+
+
+
+</style>
